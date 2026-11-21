@@ -1,5 +1,6 @@
 MAX_HOURS = 18
 
+
 class RegistrationError(Exception):
     pass
 
