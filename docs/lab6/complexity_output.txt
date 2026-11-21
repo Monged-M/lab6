@@ -1,0 +1,2 @@
+$ python -m ruff check --select C901 --config "lint.mccabe.max-complexity=1" invoice.py
+All checks passed!
