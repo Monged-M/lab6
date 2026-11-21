@@ -15,3 +15,10 @@ Feature: QR attendance check-in
     When the student scans the expired QR code
     Then attendance is refused with "QR code expired"
     And no attendance record is created
+
+  Scenario: Prevent duplicate attendance for the same session
+    Given a student is enrolled in the course
+    And the student has already checked in to an active session
+    When the student scans the same session QR code again
+    Then the system reports "Attendance already recorded"
+    And exactly one attendance record exists for that student and session
