@@ -20,4 +20,4 @@ class Student:
         self.courses[code] = hours
 
     def drop(self, code):
-        del self.courses[code]
+        self.courses.pop(code)
