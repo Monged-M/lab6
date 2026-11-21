@@ -8,3 +8,10 @@ Feature: QR attendance check-in
     And the instructor has opened an attendance session
     When the student scans the valid QR code for that session
     Then the student is marked present for the session
+
+  Scenario: Refuse attendance for an expired QR code
+    Given a student is enrolled in the course
+    And the attendance session has expired
+    When the student scans the expired QR code
+    Then attendance is refused with "QR code expired"
+    And no attendance record is created
